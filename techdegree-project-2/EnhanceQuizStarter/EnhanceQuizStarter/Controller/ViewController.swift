@@ -8,9 +8,40 @@
 
 import UIKit
 
+@IBDesignable extension UIButton {
+    
+    @IBInspectable var borderWidth: CGFloat {
+        set {
+            layer.borderWidth = newValue
+        }
+        get {
+            return layer.borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat {
+        set {
+            layer.cornerRadius = newValue
+        }
+        get {
+            return layer.cornerRadius
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor? {
+        set {
+            guard let uiColor = newValue else { return }
+            layer.borderColor = uiColor.cgColor
+        }
+        get {
+            guard let color = layer.borderColor else { return nil }
+            return UIColor(cgColor: color)
+        }
+    }
+}
+
 class ViewController: UIViewController {
     // MARK: - Outlets
-    
     
     @IBOutlet weak var questionField: UILabel!
     @IBOutlet weak var answerButtonOne: UIButton!
@@ -27,8 +58,14 @@ class ViewController: UIViewController {
         displayQuestionsAndAnswers()
     }
     
+    let quizMaster = QuizMaster.init()
     
-    let quizMaster = QuizMaster()
+    func showAllButtons() {
+        answerButtonOne.isHidden = false
+        answerButtonTwo.isHidden = false
+        answerButtonThree.isHidden = false
+        answerButtonFour.isHidden = false
+    }
     
     // this function displays the questions and answers
     // and hides the unsused buttons
@@ -39,36 +76,34 @@ class ViewController: UIViewController {
         answerButtonTwo.setTitle(questionDataFromQuiz.answerTwo, for: .normal)
         answerButtonThree.setTitle(questionDataFromQuiz.answerThree, for: .normal)
         answerButtonFour.setTitle(questionDataFromQuiz.answerFour, for: .normal)
-        // When question is displayed answerButtons are visible
+        // When question and answers are shown 'play again' button is hidden
         playAgainButton.isHidden = true
-        answerButtonOne.isHidden = false
-        answerButtonTwo.isHidden = false
-        answerButtonThree.isHidden = false
-        answerButtonFour.isHidden = false
+        // When question is displayed answerButtons are visible
+        showAllButtons()
     }
     
-    /*
-    // this function hides the buttons that are not needed
-    func hideExtraAnswerButtons() {
-        let numberOfAnswers = quizMaster.retrieveNumberOfAnswers()
-        if numberOfAnswers == 3 {
-            answerButtonOne.isHidden = false
-            answerButtonTwo.isHidden = false
-            answerButtonThree.isHidden = false
-            answerButtonFour.isHidden = true
-        } else if numberOfAnswers == 2 {
-            answerButtonOne.isHidden = false
-            answerButtonTwo.isHidden = false
-            answerButtonThree.isHidden = true
-            answerButtonFour.isHidden = true
-        } else {
-            answerButtonOne.isHidden = false
-            answerButtonTwo.isHidden = false
-            answerButtonThree.isHidden = false
-            answerButtonFour.isHidden = false
-        }
+    // this function hides answer button three and four
+    // when question has only true or false options
+    func showOnlyTrueFalseButtons () {
+        answerButtonOne.isHidden = false
+        answerButtonTwo.isHidden = false
+        answerButtonThree.isHidden = true
+        answerButtonFour.isHidden = true
+        
     }
-    */
+    
+    // this function should hide answer option three and four
+    // when it is true or false question
+    // FIXME: needs some work
+    func checkIfTrueOrFalseQuestion () {
+        let isTrueFalseQuestion = quizMaster.checkIfTrueOrFalseQuestion()
+        if isTrueFalseQuestion == true {
+            showOnlyTrueFalseButtons()
+        } else {
+            showAllButtons()
+        }
+        
+    }
     
     // this function checks whether game is over or if it is time for the next question
     func nextRound() {
@@ -108,19 +143,17 @@ class ViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func checkTheAnswer(_ sendQuestion: UIButton) {
+    @IBAction func checkTheAnswer(_ sender: UIButton) {
         // Increment the questions asked counter
-        switch sendQuestion {
+        switch sender {
         case answerButtonOne: questionField.text = quizMaster.checkAnswer(buttonPressed: 1)
         case answerButtonTwo: questionField.text = quizMaster.checkAnswer(buttonPressed: 2)
         case answerButtonThree: questionField.text = quizMaster.checkAnswer(buttonPressed: 3)
         case answerButtonFour: questionField.text = quizMaster.checkAnswer(buttonPressed: 4)
         default: break
         }
-        
         loadNextRound(delay: 2)
     }
-    
     
     @IBAction func playAgain(_ sender: UIButton) {
         // Show the answer buttons

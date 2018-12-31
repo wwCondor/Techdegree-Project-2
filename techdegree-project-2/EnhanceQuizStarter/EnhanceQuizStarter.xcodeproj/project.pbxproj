@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B2AED5121DA60850099B5E7 /* applaus.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B2AED5021DA60850099B5E7 /* applaus.wav */; };
+		0B2AED5321DA608B0099B5E7 /* buzzer.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B2AED5221DA608B0099B5E7 /* buzzer.wav */; };
+		0B2AED5521DA69E10099B5E7 /* jazzyintro.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0B2AED5421DA69E10099B5E7 /* jazzyintro.wav */; };
 		0BF7A7DF21CFDCD400B38500 /* QuizMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A7DE21CFDCD400B38500 /* QuizMaster.swift */; };
 		0BF7A7E121CFDD7D00B38500 /* PlaySounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A7E021CFDD7D00B38500 /* PlaySounds.swift */; };
 		972A72B12056F06C0059EF4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972A72B02056F06C0059EF4A /* AppDelegate.swift */; };
@@ -14,10 +17,12 @@
 		972A72B62056F06C0059EF4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 972A72B42056F06C0059EF4A /* Main.storyboard */; };
 		972A72B82056F06C0059EF4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 972A72B72056F06C0059EF4A /* Assets.xcassets */; };
 		972A72BB2056F06C0059EF4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 972A72B92056F06C0059EF4A /* LaunchScreen.storyboard */; };
-		972A72C32056F0E40059EF4A /* GameSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 972A72C22056F0E40059EF4A /* GameSound.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B2AED5021DA60850099B5E7 /* applaus.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = applaus.wav; sourceTree = "<group>"; };
+		0B2AED5221DA608B0099B5E7 /* buzzer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = buzzer.wav; sourceTree = "<group>"; };
+		0B2AED5421DA69E10099B5E7 /* jazzyintro.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jazzyintro.wav; sourceTree = "<group>"; };
 		0BF7A7DE21CFDCD400B38500 /* QuizMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMaster.swift; sourceTree = "<group>"; };
 		0BF7A7E021CFDD7D00B38500 /* PlaySounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySounds.swift; sourceTree = "<group>"; };
 		972A72AD2056F06C0059EF4A /* EnhanceQuizStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnhanceQuizStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,7 +32,6 @@
 		972A72B72056F06C0059EF4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		972A72BA2056F06C0059EF4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		972A72BC2056F06C0059EF4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		972A72C22056F0E40059EF4A /* GameSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameSound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +96,9 @@
 				0BF7A7E221CFE47D00B38500 /* View */,
 				972A72B72056F06C0059EF4A /* Assets.xcassets */,
 				972A72BC2056F06C0059EF4A /* Info.plist */,
-				972A72C22056F0E40059EF4A /* GameSound.wav */,
+				0B2AED5021DA60850099B5E7 /* applaus.wav */,
+				0B2AED5221DA608B0099B5E7 /* buzzer.wav */,
+				0B2AED5421DA69E10099B5E7 /* jazzyintro.wav */,
 			);
 			path = EnhanceQuizStarter;
 			sourceTree = "<group>";
@@ -129,6 +135,7 @@
 				TargetAttributes = {
 					972A72AC2056F06C0059EF4A = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -156,10 +163,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				972A72C32056F0E40059EF4A /* GameSound.wav in Resources */,
+				0B2AED5321DA608B0099B5E7 /* buzzer.wav in Resources */,
 				972A72BB2056F06C0059EF4A /* LaunchScreen.storyboard in Resources */,
 				972A72B82056F06C0059EF4A /* Assets.xcassets in Resources */,
+				0B2AED5521DA69E10099B5E7 /* jazzyintro.wav in Resources */,
 				972A72B62056F06C0059EF4A /* Main.storyboard in Resources */,
+				0B2AED5121DA60850099B5E7 /* applaus.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +329,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.EnhanceQuizStarter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -335,7 +344,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.EnhanceQuizStarter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

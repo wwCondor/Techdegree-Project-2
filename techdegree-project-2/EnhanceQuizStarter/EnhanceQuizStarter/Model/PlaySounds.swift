@@ -16,7 +16,7 @@ class PlaySounds {
     static var gameSound: SystemSoundID = 0
     
     static func loadGameStartSound() {
-        let path = Bundle.main.path(forResource: "GameSound", ofType: "wav")
+        let path = Bundle.main.path(forResource: "jazzyintro", ofType: "wav")
         let soundUrl = URL(fileURLWithPath: path!)
         AudioServicesCreateSystemSoundID(soundUrl as CFURL, &gameSound)
     }
@@ -26,3 +26,36 @@ class PlaySounds {
     }
     
 }
+
+class PlayApplaus {
+    
+    static var gameSound: SystemSoundID = 0
+    
+    static func loadApplausSound() {
+        let path = Bundle.main.path(forResource: "applaus", ofType: "wav")
+        let soundUrl = URL(fileURLWithPath: path!)
+        AudioServicesCreateSystemSoundID(soundUrl as CFURL, &gameSound)
+    }
+    
+    static func playApplausSound() {
+        AudioServicesPlaySystemSound(gameSound)
+    }
+    
+}
+
+class PlayBuzzer {
+    
+    static var gameSound: SystemSoundID = 0
+    
+    static func loadBuzzerSound() {
+        let path = Bundle.main.path(forResource: "buzzer", ofType: "wav")
+        let soundUrl = URL(fileURLWithPath: path!)
+        AudioServicesCreateSystemSoundID(soundUrl as CFURL, &gameSound)
+    }
+    
+    static func playBuzzerSound() {
+        AudioServicesPlaySystemSound(gameSound)
+    }
+    
+}
+
