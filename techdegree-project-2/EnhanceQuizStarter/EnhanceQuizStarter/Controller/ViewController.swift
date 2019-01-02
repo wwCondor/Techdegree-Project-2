@@ -67,19 +67,39 @@ class ViewController: UIViewController {
         answerButtonFour.isHidden = false
     }
     
+    // this function hides answer button three and four
+    // when question has only true or false options
+    func showTrueFalseButtons () {
+        answerButtonOne.isHidden = false
+        answerButtonTwo.isHidden = false
+        answerButtonThree.isHidden = true
+        answerButtonFour.isHidden = true
+        
+    }
+    
     // this function displays the questions and answers
     // and hides the unsused buttons
     func displayQuestionsAndAnswers() {
         let questionDataFromQuiz = quizMaster.provideQuestion()
         questionField.text = questionDataFromQuiz.question
-        answerButtonOne.setTitle(questionDataFromQuiz.answerOne, for: .normal)
-        answerButtonTwo.setTitle(questionDataFromQuiz.answerTwo, for: .normal)
-        answerButtonThree.setTitle(questionDataFromQuiz.answerThree, for: .normal)
-        answerButtonFour.setTitle(questionDataFromQuiz.answerFour, for: .normal)
+        
+        let amountOfAnswers = questionDataFromQuiz.answers.count
+        
+        switch amountOfAnswers {
+        case 2:
+            answerButtonOne.setTitle(questionDataFromQuiz.answers[0], for: .normal)
+            answerButtonTwo.setTitle(questionDataFromQuiz.answers[1], for: .normal)
+            showTrueFalseButtons()
+        case 4:
+            answerButtonOne.setTitle(questionDataFromQuiz.answers[0], for: .normal)
+            answerButtonTwo.setTitle(questionDataFromQuiz.answers[1], for: .normal)
+            answerButtonThree.setTitle(questionDataFromQuiz.answers[2], for: .normal)
+            answerButtonFour.setTitle(questionDataFromQuiz.answers[3], for: .normal)
+            showAllButtons()
+        default: break
+        }
         // When question and answers are shown 'play again' button is hidden
         playAgainButton.isHidden = true
-        // When question is displayed answerButtons are visible
-        showAllButtons()
     }
     
     // this function hides answer button three and four
@@ -89,19 +109,6 @@ class ViewController: UIViewController {
         answerButtonTwo.isHidden = false
         answerButtonThree.isHidden = true
         answerButtonFour.isHidden = true
-        
-    }
-    
-    // this function should hide answer option three and four
-    // when it is true or false question
-    // FIXME: needs some work
-    func checkIfTrueOrFalseQuestion () {
-        let isTrueFalseQuestion = quizMaster.checkIfTrueOrFalseQuestion()
-        if isTrueFalseQuestion == true {
-            showOnlyTrueFalseButtons()
-        } else {
-            showAllButtons()
-        }
         
     }
     

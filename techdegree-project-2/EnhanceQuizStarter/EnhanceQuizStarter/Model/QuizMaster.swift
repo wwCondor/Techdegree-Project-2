@@ -13,197 +13,117 @@ class QuizMaster {
     
     struct TriviaQuestions {
         let question: String
-        let answerOne: String
-        let answerTwo: String
-        let answerThree: String
-        let answerFour: String
+        let answers: [String]
+        
+        // this Int reflects the number of the correct answer
+        // not the number of the answer seen as an array
+        // this makes it a bit more clear later on in the use of the buttons
+        // which would otherwise have a number 0 instead of being the 1st button
+        // I decided the current approach would be less confusing looking at a the whole picture
         let correctAnswer: Int
-        let trueOrFalseQuestion: Bool
         
     }
     
     let questionOne = TriviaQuestions(
         question: "What is the correct syntax for a constant?",
-        answerOne: "const",
-        answerTwo: "var",
-        answerThree: "let",
-        answerFour: "con",
-        correctAnswer: 3,
-        trueOrFalseQuestion: false)
+        answers: ["const", "var", "let", "con"],
+        correctAnswer: 3)
+    
     
     let questionTwo = TriviaQuestions(
         question: "What is the correct syntax for a variable",
-        answerOne: "const",
-        answerTwo: "var",
-        answerThree: "let",
-        answerFour: "con",
-        correctAnswer: 2,
-        trueOrFalseQuestion: false
-    )
+        answers: ["const", "var", "let", "con"],
+        correctAnswer: 2)
     
     let questionThree = TriviaQuestions(
         question: "A sequence of characters surrounded by double quotes is called a",
-        answerOne: "String Literal",
-        answerTwo: "Global Variable",
-        answerThree: "Literal Expression",
-        answerFour: "Quote sequence",
-        correctAnswer: 1,
-        trueOrFalseQuestion: false)
+        answers: ["String Literal", "Global Variable", "Literal Expression", "Quote sequence"],
+        correctAnswer: 1)
     
     let questionFour = TriviaQuestions(
         question: "What statement can be used to stop the execution of a loop, if, or switch statement?",
-        answerOne: "Stop",
-        answerTwo: "End",
-        answerThree: "Exit",
-        answerFour: "Break",
-        correctAnswer: 4,
-        trueOrFalseQuestion: false)
+        answers: ["Stop", "End", "Exit", "Break"],
+        correctAnswer: 4)
     
     let questionFive = TriviaQuestions(
         question: "Which of the following is not a numerical type?",
-        answerOne: "Int",
-        answerTwo: "Float",
-        answerThree: "Bool",
-        answerFour: "Double",
-        correctAnswer: 3,
-        trueOrFalseQuestion: false)
+        answers: ["Int", "Float", "Bool", "Double"],
+        correctAnswer: 3)
     
     let questionSix = TriviaQuestions(
         question: "What is composition?",
-        answerOne: "Class design through protocol conformance",
-        answerTwo: "Designing a class through inheritance",
-        answerThree: "It refers to the way you organise all your objects",
-        answerFour: "None of the above",
-        correctAnswer: 1,
-        trueOrFalseQuestion: false)
+        answers: ["Class design through protocol conformance", "Designing a class through inheritance", "It refers to the way you organise all your objects", "None of the above"],
+        correctAnswer: 1)
     
     let questionSeven = TriviaQuestions(
         question: "What is the name of the 'structure' that can be prevented using a Guard statement",
-        answerOne: "The Tower of Doom",
-        answerTwo: "The Pyramid of Danger",
-        answerThree: "The Pyramid of Doom",
-        answerFour: "The Party-hat of Disaster",
-        correctAnswer: 3,
-        trueOrFalseQuestion: false)
+        answers: ["The Tower of Doom", "The Pyramid of Danger", "The Pyramid of Doom", "The Partyhat of Disaster"],
+        correctAnswer: 3)
     
     let questionEight = TriviaQuestions(
         question: "Enumerations",
-        answerOne: "are very flexible",
-        answerTwo: "do not have to provide a value for each case",
-        answerThree: "are types in their own right",
-        answerFour: "All of the above",
-        correctAnswer: 4,
-        trueOrFalseQuestion: false)
+        answers: ["are very flexible", "do not have to provide a value for each case", "are types in their own right", "All of the above"],
+        correctAnswer: 4)
     
     let questionNine = TriviaQuestions(
         question: "When we try to access a value using a key that doesn't exist in a dictionary, what result do we get?",
-        answerOne: "An index out of bounds error",
-        answerTwo: "We get the key back",
-        answerThree: "A nil value",
-        answerFour: "The program crashes",
-        correctAnswer: 1,
-        trueOrFalseQuestion: false)
+        answers: ["An index out of bounds error", "We get the key back", "A nil value", "The program crashes"],
+        correctAnswer: 1)
     
     let questionTen = TriviaQuestions(
         question: "The process of converting from superclass to a more specific subclass is called:",
-        answerOne: "inheritance",
-        answerTwo: "protocol programming",
-        answerThree: "downcasting",
-        answerFour: "upcasting",
-        correctAnswer: 3,
-        trueOrFalseQuestion: false)
+        answers: ["inheritance", "protocol programming", "downcasting", "upcasting"],
+        correctAnswer: 3)
     
     let questionEleven = TriviaQuestions(
         question: "Swift is awesome",
-        answerOne: "True",
-        answerTwo: "False",
-        answerThree: "-",
-        answerFour: "-",
-        correctAnswer: 1,
-        trueOrFalseQuestion: true)
+        answers: ["True", "False"],
+        correctAnswer: 1)
     
     let questionTwelve = TriviaQuestions(
         question: "An alternate name for an existing type is called Type Aliases",
-        answerOne: "True",
-        answerTwo: "False",
-        answerThree: "-",
-        answerFour: "-",
-        correctAnswer: 1,
-        trueOrFalseQuestion: true)
+        answers: ["True", "False"],
+        correctAnswer: 1)
     
     let questionThirteen = TriviaQuestions(
         question: "'Any Object' and 'Any' represent non specific types'",
-        answerOne: "False",
-        answerTwo: "True",
-        answerThree: "-",
-        answerFour: "-",
-        correctAnswer: 2,
-        trueOrFalseQuestion: true)
+        answers: ["False", "True"],
+        correctAnswer: 2)
     
     let questionFourteen = TriviaQuestions(
         question: "XML stands for",
-        answerOne: "Excessive Markup Language",
-        answerTwo: "Extra Markup Language",
-        answerThree: "Extensible Markup Language",
-        answerFour: "Extensible Make-up Language",
-        correctAnswer: 3,
-        trueOrFalseQuestion: false)
+        answers: ["Excessive Markup Language", "Extra Markup Language", "Extensible Markup Language", "Extensible Make-up Language"],
+        correctAnswer: 3)
     
     let questionFifteen = TriviaQuestions(
         question: "If it doesn't exist within that scope the compiler will not auto-complete",
-        answerOne: "False",
-        answerTwo: "True",
-        answerThree: "-",
-        answerFour: "-",
-        correctAnswer: 2,
-        trueOrFalseQuestion: true)
+        answers: ["False", "True"],
+        correctAnswer: 2)
     
     let questionSixteen = TriviaQuestions(
         question: "When objects have an expected blueprint that defines expected behaviour, we talk about...",
-        answerOne: "inheritance",
-        answerTwo: "downcasting",
-        answerThree: "protocol",
-        answerFour: "conformance",
-        correctAnswer: 3,
-        trueOrFalseQuestion: false)
+        answers: ["inheritance", "downcasting", "protocol", "conformance"],
+        correctAnswer: 3)
     
     let questionSeventeen = TriviaQuestions(
         question: "When in doubt a good place to start looking for an answer is",
-        answerOne: "Treehouse Slack community",
-        answerTwo: "Browse the internet",
-        answerThree: "Ask your grandma",
-        answerFour: "Some but definetly not all of the above",
-        correctAnswer: 4,
-        trueOrFalseQuestion: false)
+        answers: ["Treehouse Slack community", "Browse the internet", "Watch relevant videos again", "All of the above"],
+        correctAnswer: 4)
     
     let questionEightteen = TriviaQuestions(
         question: "'||' is the OR Operator",
-        answerOne: "True",
-        answerTwo: "False",
-        answerThree: "-",
-        answerFour: "-",
-        correctAnswer: 1,
-        trueOrFalseQuestion: true)
+        answers: ["True", "False"],
+        correctAnswer: 1)
     
     let questionNineteen = TriviaQuestions(
         question: "Subcripts are shortcuts for changing member elements of a collection, list or sequence",
-        answerOne: "True",
-        answerTwo: "False",
-        answerThree: "-",
-        answerFour: "-",
-        correctAnswer: 2,
-        trueOrFalseQuestion: true)
+        answers: ["True", "False"],
+        correctAnswer: 2)
     
     let questionTwenty = TriviaQuestions(
         question: "Raw Values have to be assigned for each case of an enum",
-        answerOne: "True",
-        answerTwo: "False",
-        answerThree: "-",
-        answerFour: "-",
-        correctAnswer: 2,
-        trueOrFalseQuestion: true)
-    
-    var questionIsTrueOrFalseOnly: Bool = true
+        answers: ["True", "False"],
+        correctAnswer: 2)
     
     // this determines the amount of questions per round
     let questionsPerRound = 10
@@ -239,35 +159,6 @@ class QuizMaster {
         let questionReturned = questionsReorganised[questionsAsked]
         return questionReturned
     }
-    
-    func checkTrueOrFalseQuestion() {
-        self.questionIsTrueOrFalseOnly = false
-    }
-    
-    func checkIfTrueOrFalseQuestion() -> Bool {
-        checkTrueOrFalseQuestion()
-        arrayReorganised()
-        
-        if questionsReorganised[questionsAsked].trueOrFalseQuestion == true {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    /*
- 
-     func checkIfTrueOrFalseQuestion() -> Bool {
-     arrayReorganised()
-     
-     if questionsReorganised[questionsAsked].trueOrFalseQuestion == false {
-     return true
-     } else {
-     return false
-     }
-     }
-     
-     */
     
     // this checks the answer and increases score if answer is correct
     // or increases counter for wrong answer given
