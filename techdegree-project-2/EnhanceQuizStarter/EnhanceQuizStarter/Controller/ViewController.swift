@@ -60,6 +60,8 @@ class ViewController: UIViewController {
     
     let quizMaster = QuizMaster.init()
     
+    
+    // MARK: - Buttons (Hide/Show)
     func showAllButtons() {
         answerButtonOne.isHidden = false
         answerButtonTwo.isHidden = false
@@ -76,7 +78,7 @@ class ViewController: UIViewController {
         answerButtonFour.isHidden = true
         
     }
-    
+    // MARK: - Display (Questions/Answers)
     // this function displays the questions and answers
     // and hides the unsused buttons
     func displayQuestionsAndAnswers() {
@@ -102,16 +104,6 @@ class ViewController: UIViewController {
         playAgainButton.isHidden = true
     }
     
-    // this function hides answer button three and four
-    // when question has only true or false options
-    func showOnlyTrueFalseButtons () {
-        answerButtonOne.isHidden = false
-        answerButtonTwo.isHidden = false
-        answerButtonThree.isHidden = true
-        answerButtonFour.isHidden = true
-        
-    }
-    
     // this function checks whether game is over or if it is time for the next question
     func nextRound() {
         if quizMaster.questionsAsked == quizMaster.questionsPerRound {
@@ -123,6 +115,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: - Score Display
     func displayScore() {
         // When score is displayed answerButtons are hidden
         answerButtonOne.isHidden = true
@@ -163,10 +156,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func playAgain(_ sender: UIButton) {
-        // Show the answer buttons
-        quizMaster.questionsAsked = 0
-        quizMaster.correctQuestions = 0
-        quizMaster.wrongAnswersGiven = 0
+        // this resets the Game Data when new game is started
+        quizMaster.resetGameData()
         nextRound()
     }
     

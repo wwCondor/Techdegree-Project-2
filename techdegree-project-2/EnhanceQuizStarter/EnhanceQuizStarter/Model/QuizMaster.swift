@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import GameKit
 
 class QuizMaster {
     
@@ -126,7 +127,7 @@ class QuizMaster {
         correctAnswer: 2)
     
     // this determines the amount of questions per round
-    let questionsPerRound = 10
+    let questionsPerRound = 8
     
     // this counts the amount of questions asked
     var questionsAsked = 0
@@ -148,16 +149,38 @@ class QuizMaster {
         self.questionsCombined = [questionOne, questionTwo, questionThree, questionFour, questionFive, questionSix, questionSeven, questionEight, questionNine, questionTen, questionEleven, questionTwelve, questionThirteen, questionFourteen, questionFifteen, questionSixteen, questionSeventeen, questionEightteen, questionNineteen, questionTwenty]
     }
     
-    // this function reorganises the questionsCombined
-    func arrayReorganised() {
-        questionsReorganised = questionsCombined.shuffled()
+    // this function reorganises the questions, without doubles, in a random order
+    func reorganiseQuestionArray() {
+        let randomQuestionArrayProvider = GKShuffledDistribution.init(lowestValue: 0, highestValue: questionsCombined.count - 1)
+        for _ in 0..<questionsPerRound {
+            questionsReorganised.append(questionsCombined[randomQuestionArrayProvider.nextInt()])
+        }
     }
+    
+    // This was the old function that randomised the questions
+    // but didn't check for double questions.
+    /*
+ 
+     // this function reorganises the questionsCombined
+     func shuffleQuestionArray() {
+     questionsReorganised = questionsCombined.shuffled()
+     }
+ 
+    */
     
     // this selects one TriviaQuestion from the TriviaQuestions
     func provideQuestion() -> TriviaQuestions {
-        arrayReorganised()
+        reorganiseQuestionArray()
         let questionReturned = questionsReorganised[questionsAsked]
         return questionReturned
+    }
+    
+    // resets all game data 
+    func resetGameData() {
+        questionsAsked = 0 
+        correctQuestions = 0
+        wrongAnswersGiven = 0
+        questionsReorganised.removeAll()
     }
     
     // this checks the answer and increases score if answer is correct
